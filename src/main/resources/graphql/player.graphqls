@@ -1,0 +1,27 @@
+schema{
+    query:Query,
+    mutation:Mutation
+}
+
+type Player{
+    id:ID!,
+    firstName:String!,
+    lastName:String!,
+    position:Position!
+}
+
+input createPlayerDto{
+    firstName:String!,
+    lastName:String!,
+    positionShortName:String!
+}
+
+type Query{
+    getPlayers:[Player]
+    getPlayer(id:ID):Player
+}
+
+type Mutation {
+    createPlayer(input: createPlayerDto!):Player,
+    deletePlayer(id:ID!):Int
+}
